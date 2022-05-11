@@ -1,0 +1,320 @@
+/*
+** EPITECH PROJECT, 2021
+** victor header
+** File description:
+** lib my_hunterexercise
+*/
+
+#ifndef LIBRAY_H_
+    #define LIBRAY_H_
+    #include <string.h>
+    #include <stdio.h>
+    #include <unistd.h>
+    #include <sys/types.h>
+    #include <sys/stat.h>
+    #include <stddef.h>
+    #include <fcntl.h>
+    #include <stdlib.h>
+    #include <sys/stat.h>
+    #include <ctype.h>
+    #include "./structs.h"
+    #include <math.h>
+    #include <limits.h>
+
+sfSprite *create_tutorial_1(void);
+sfSprite *create_tutorial_2(void);
+sfSprite *create_tutorial_3(void);
+sfSprite *create_tutorial_4(void);
+sfSprite *create_tutorial_5(void);
+sfSprite *create_tutorial_6(void);
+sfSprite *create_tutorial_7(void);
+sfSprite *create_tutorial_8(void);
+void print_page_tutorial(all_var *all);
+void back_button_func(all_var *all, new_button *button);
+void func_sound(all_var *all);
+int my_getnbr(char const *str);
+void print_scoreboard(all_var *all);
+int inside_tower_area(sfVector2f tower, sfVector2f enemy);
+int my_strlen(char const *str);
+void close_game(all_var *all);
+void print_lock(all_var *all, sfVector2f vector);
+sfSprite *create_lock(void);
+sfSprite *create_light_big(void);
+sfSprite *create_map_2(void);
+sfSprite *create_map_1(void);
+sfSprite *create_scoreboard(void);
+sfSprite *create_selection_map(void);
+void save_cordinates(all_var *all);
+void create_path(all_var *all, t_info_path *file, int i);
+t_info_path *init_struc_path(void);
+sfVector2f get_direction(sfVector2f pos, sfVector2f next, int maxspeed);
+void print_selection_maps(all_var *all);
+int fs_open_file(char const *filepath);
+char *my_return_char(int nb);
+void manage_pages(all_var *all);
+void print_page_mainmenu(all_var *all);
+void print_page_settings(all_var *all);
+void print_page_levels(all_var *all);
+void print_page_game(all_var *all);
+void print_game_over(all_var *all);
+void scale_images(all_var *all);
+void create_msg (all_var *all);
+char *my_return_time(int nb);
+sfVector2f get_pos_slot(int map, int num_slot);
+void func_fps(all_var *all);
+char *my_revstr(char *str);
+void func_sound(all_var *all);
+void print_upgrade(all_var *all, int num_slot);
+void create_soldiers(t_info_soldiers *file);
+t_info_soldiers *ini_linked_soldiers(int i);
+new_button *create_button(int x, int y, int size_x, int size_y);
+t_info_slots *ini_linked_slots(int i);
+void shop_buttons(all_var *all);
+void upgrade_buttons(all_var *all, int num_slot);
+void kill_enemies(all_var *all);
+void change_char_health (sfIntRect *select_char);
+int all_enemies_dead_pass(all_var *all);
+int my_strlen2(char const *str);
+char **save_word(char *arraytext, char separator, char *filepath);
+char *my_strcat(char *dest, char *src);
+char *save_text(int fd, char *filepath);
+int get_tower_type(all_var *all, int num_slot);
+char *my_strcat(char *dest, char *src);
+void analayse_events(all_var *all, int page);
+sfSprite *create_pause(void);
+void pause_page(all_var *all);
+void print_pause(all_var *all);
+void sound_steps(all_var *all);
+void play_sound_tower(all_var *all, t_info_slots *tmp_slots);
+void *my_memset(void *s, int c, int n);
+void *my_calloc(int nmemb, int size);
+char *my_return_char(int nb);
+char *my_strdup(char *str);
+int size_text(char *filepath);
+char *save_text(int fd, char *filepath);
+int quantity_sentences(int size_text, char *str, char delimiter);
+int len_sentence(char *arraytext, char delimiter);
+char **save_word(char *arraytext, char separator, char *filepath);
+void create_path(all_var *all, t_info_path *file, int i);
+void get_soldier_path(all_var *all);
+void save_cordinates(all_var *all);
+int is_button_pressed(new_button *button, all_var *all);
+int is_button_pressed2(new_button *button, all_var *all,
+sfSprite *sprite, sfVector2f vector);
+new_button *create_button(int x, int y, int size_x, int size_y);
+void scale_images(all_var *all);
+void scale_images_2(all_var *all);
+void scale_images_3(all_var *all);
+void scale_images_4(all_var *all);
+void scale_images_5(all_var *all);
+void create_sounds(all_var *all);
+void create_sounds2(all_var *all);
+void create_sounds3(all_var *all);
+void create_clocks(all_var *all);
+void create_msg (all_var *all);
+void create_positions(all_var *all);
+void ini_all_start(all_var *all, int ini);
+all_var *init_var_all(void);
+t_info_slots *init_struc_slots(void);
+t_info_slots *ini_linked_slots(int i);
+t_info_soldiers *init_struc_soldiers(void);
+t_info_soldiers *ini_linked_soldiers(int i);
+void reset_game(all_var *all);
+void full_reset_game(all_var *all);
+void ini_struc_var(all_var *all);
+void change_map_in_linked(all_var *all);
+t_info_path *init_struc_path(void);
+t_info_path *ini_linked_path(int i, char *x, char *y, char *orientation);
+void array_towers_zero(all_var *all);
+void ini_struct_sprites(all_var  *all);
+void ini_struct_sprites_2(all_var  *all);
+void ini_struct_sprites_3(all_var  *all);
+void ini_struct_sprites_4(all_var  *all);
+void ini_struct_sprites_5(all_var  *all);
+void ini_struct_sprites_6(all_var  *all);
+sfSprite **get_towers(all_var *all, int i);
+void print_tower_in_slot(all_var *all, t_info_slots *tmp_slots);
+void show_upgrade(t_info_slots *tmp_slots);
+void write_tower_in_slot(all_var *all, int num_slot, int type_tower);
+void print_tower_in_mouse(all_var *all);
+sfSprite *get_upg_tower(all_var *all, int i);
+void print_upgrade(all_var *all, int num_slot);
+void print_no_upgrade(all_var *all, int num_slot);
+void print_tower_1_5(all_var *all);
+void print_tower_6_10(all_var *all);
+void print_tower_level(all_var *all, t_info_slots *tmp_slots,
+sfSprite *sprite);
+void print_level(all_var *all, t_info_slots *tmp_slots);
+void print_soldier_run(all_var *all, t_info_soldiers *tmp);
+void print_soldier_d_u(all_var *all,  t_info_soldiers *tmp);
+void print_soldier_d_d(all_var *all,  t_info_soldiers *tmp);
+void print_soldier_u(all_var *all,  t_info_soldiers *tmp);
+void print_soldier_manage(all_var *all);
+void set_num_soldiers(all_var *all);
+void set_soldier(t_info_soldiers *tmp, int full_live, int soldier_type);
+int all_enemies_dead_pass(all_var *all);
+void save_selected(all_var *all, int tower_type);
+void page_selection_towers(all_var *all);
+void print_selection_towers(all_var *all);
+void page_levels(all_var *all);
+void print_page_levels(all_var *all);
+void print_castle_live(all_var *all);
+void print_soldier_health(all_var *all, t_info_soldiers *tmp);
+void change_char_health (sfIntRect *select_char);
+void change_char (sfIntRect *select_char);
+void change_live (sfIntRect *select_live);
+void change_money (sfIntRect *select_coin);
+void game_over_page(all_var *all);
+void print_game_over(all_var *all);
+void print_towers_shop(all_var *all);
+void print_shop(all_var *all);
+void print_shop2(all_var *all);
+void print_shop3(all_var *all);
+void page_portada(all_var *all);
+void print_page_portada(all_var *all);
+void print_page_charge(all_var *all);
+void save_selected(all_var *all, int tower_type);
+void print_lock(all_var *all, sfVector2f vector);
+void page_selection_towers(all_var *all);
+void print_selection_towers(all_var *all);
+void page_selection_maps(all_var *all);
+void print_selection_maps(all_var *all);
+void upgrade_buttons(all_var *all, int num_slot);
+void shop_buttons(all_var *all);
+void slots_buttons(all_var *all);
+void create_slots(t_info_slots *file);
+void create_soldiers(t_info_soldiers *file);
+void create_soldiers_and_slots(all_var *all);
+sfSprite *create_soldier_1_d_d(void);
+sfSprite *create_soldier_1_d_u(void);
+sfSprite *create_soldier_1_u(void);
+sfSprite *create_soldier_1_run(void);
+sfSprite *create_soldier_1_run_2(void);
+sfSprite *create_soldier_2_d_d(void);
+sfSprite *create_soldier_2_d_u(void);
+sfSprite *create_soldier_2_u(void);
+sfSprite *create_soldier_2_run(void);
+sfSprite *create_soldier_2_run_2(void);
+sfSprite *create_soldier_3_d_d(void);
+sfSprite *create_soldier_3_d_u(void);
+sfSprite *create_soldier_3_u(void);
+sfSprite *create_soldier_3_run(void);
+sfSprite *create_soldier_3_run_2(void);
+sfSprite *create_soldier_4_d_d(void);
+sfSprite *create_soldier_4_d_u(void);
+sfSprite *create_soldier_4_u(void);
+sfSprite *create_soldier_4_run(void);
+sfSprite *create_soldier_4_run_2(void);
+sfSprite *create_soldier_1_d_u_2(void);
+sfSprite *create_soldier_2_d_u_2(void);
+sfSprite *create_soldier_3_d_u_2(void);
+sfSprite *create_soldier_4_d_u_2(void);
+sfSprite *create_coin(void);
+sfSprite *create_money(void);
+sfSprite *create_shop(void);
+sfSprite *create_trash(void);
+sfSprite *create_shine(void);
+sfSprite *create_lose(void);
+sfSprite *create_win(void);
+sfSprite *create_light_button(void);
+sfSprite *create_light_play(void);
+sfSprite *create_soldier_health(void);
+sfSprite *create_castle_live(void);
+sfSprite *create_light_button2(void);
+sfSprite *create_light_upgrade(void);
+sfSprite *create_light_small(void);
+sfSprite *create_light_big(void);
+sfSprite *create_lock(void);
+sfSprite *create_pause_button(void);
+sfSprite *create_attack_area(void);
+sfSprite *create_background(void);
+sfSprite *create_background_menu(void);
+sfSprite *create_selection_page(void);
+sfSprite *create_levels(void);
+sfSprite *create_mainmenu(void);
+sfSprite *create_portada(void);
+sfSprite *create_settings(void);
+sfSprite *create_game_over(void);
+sfSprite *create_tower_1(void);
+sfSprite *create_tower_1_level1(void);
+sfSprite *create_tower_1_level2(void);
+sfSprite *create_tower_1_level3(void);
+sfSprite *create_upg_tower_1(void);
+sfSprite *create_tower_2(void);
+sfSprite *create_tower_2_level1(void);
+sfSprite *create_tower_2_level2(void);
+sfSprite *create_tower_2_level3(void);
+sfSprite *create_upg_tower_2(void);
+sfSprite *create_tower_3(void);
+sfSprite *create_tower_3_level1(void);
+sfSprite *create_tower_3_level2(void);
+sfSprite *create_tower_3_level3(void);
+sfSprite *create_upg_tower_3(void);
+sfSprite *create_tower_4(void);
+sfSprite *create_tower_4_level1(void);
+sfSprite *create_tower_4_level2(void);
+sfSprite *create_tower_4_level3(void);
+sfSprite *create_upg_tower_4(void);
+sfSprite *create_tower_5(void);
+sfSprite *create_tower_5_level1(void);
+sfSprite *create_tower_5_level2(void);
+sfSprite *create_tower_5_level3(void);
+sfSprite *create_upg_tower_5(void);
+sfSprite *create_tower_6(void);
+sfSprite *create_tower_6_level1(void);
+sfSprite *create_tower_6_level2(void);
+sfSprite *create_tower_6_level3(void);
+sfSprite *create_upg_tower_6(void);
+sfSprite *create_tower_7(void);
+sfSprite *create_tower_7_level1(void);
+sfSprite *create_tower_7_level2(void);
+sfSprite *create_tower_7_level3(void);
+sfSprite *create_upg_tower_7(void);
+sfSprite *create_tower_8(void);
+sfSprite *create_tower_8_level1(void);
+sfSprite *create_tower_8_level2(void);
+sfSprite *create_tower_8_level3(void);
+sfSprite *create_upg_tower_8(void);
+sfSprite *create_no_upgrades(void);
+sfSprite *create_upg_tower_5(void);
+sfSprite *create_upg_tower_6(void);
+sfSprite *create_upg_tower_7(void);
+sfSprite *create_upg_tower_8(void);
+sfVector2f *get_shop_positions(void);
+sfVector2f get_vector_selection(int i);
+sfVector2f *get_slots_map_1(void);
+sfVector2f *get_slots_map_2(void);
+sfVector2f get_pos_slot(int map, int num_slot);
+sfVector2f get_pos_money(all_var *all);
+sfVector2f get_pos_money2(all_var *all);
+sfVector2f make_inverse(sfVector2f final, sfVector2f temp);
+int get_max_speed(int level);
+sfVector2f get_direction(sfVector2f pos, sfVector2f next,
+int maxspeed);
+sfVector2f get_final_point(t_info_path *temp_path,
+t_info_soldiers *tmp);
+int get_player_orientation(t_info_path *temp_path,
+t_info_soldiers *tmp);
+int get_tower_type(all_var *all, int num_slot);
+int get_player_name(all_var *all);
+sfVector2f *get_mainmenu_positions(void);
+new_button *get_tower_button_selection(int i);
+new_button **get_tower_shop_buttons(void);
+new_button **get_slot_button_map1(void);
+new_button **get_slot_button_map2(void);
+new_button ***create_slots_buttons(void);
+new_button **get_mainmenu_buttons(void);
+char **get_shop_names(void);
+void print_soldier(all_var *all, t_info_soldiers *tmp, int direction);
+void print_level(all_var *all, t_info_slots *tmp_slots);
+void print_char(all_var *all, t_info_soldiers *tmp);
+sfVector2f get_final_point(t_info_path *temp_path, t_info_soldiers *tmp);
+int get_max_speed(int level);
+sfSprite *create_pause_button(void);
+sfSprite *create_loading(void);
+void print_attack_area(all_var *all);
+void delete_selection(all_var *all);
+void pause_button(all_var *all);
+
+#endif
+
